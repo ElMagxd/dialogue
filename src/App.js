@@ -1,7 +1,11 @@
+import Header from "./components/Header";
+import Dialog from "./components/Dialog";
+
 function App() {
   return (
     <div className="container">
-        Hi there
+        <Header/>
+        <Dialog/>
     </div>
   );
 }
