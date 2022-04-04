@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/dialogue/static/css/main.b4354c29.css",
+    "main.js": "/dialogue/static/js/main.78407371.js",
+    "index.html": "/dialogue/index.html",
+    "main.b4354c29.css.map": "/dialogue/static/css/main.b4354c29.css.map",
+    "main.78407371.js.map": "/dialogue/static/js/main.78407371.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b4354c29.css",
+    "static/js/main.78407371.js"
+  ]
+}
