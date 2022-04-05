@@ -11,7 +11,13 @@ const UserName = styled.div`
 `;
 
 const UserStatus = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: var(--accent-2);
+	position: relative;
 	text-align: center;
+	font-size: 13px;
 
 	.circle {
 		border-radius: 50%;

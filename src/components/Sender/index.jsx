@@ -12,9 +12,9 @@ const SendForm = styled.form`
 		height: 100%;
 		border: 1px solid var(--border);
 		background-color: var(--accent-1);
-		padding: 1rem 1.2rem;
+		padding: .9rem 1.2rem;
 		transition: border-color 200ms;
-		border-radius: 5px;
+		border-radius: 50px;
 		outline: none;
 		color: var(--color);
 
@@ -25,14 +25,19 @@ const SendForm = styled.form`
 
 	button {
 		height: 100%;
-		padding: 1rem 1.2rem;
-		border-radius: 5px;
+		padding: .9rem 1.5rem;
+		border-radius: 50px;
 		cursor: pointer;
 		margin-left: 1rem;
 		outline: none;
 		border: 1px solid var(--primary);
-		background: var(--primary);
+		background-color: var(--primary);
 		color: var(--primary-color);
+		transition: background-color .3s ease;
+
+		&:hover {
+			background-color: var(--primary-lighten);
+		}
 	}
 `;
 

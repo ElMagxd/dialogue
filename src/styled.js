@@ -14,6 +14,7 @@ export const GlobalStyle = createGlobalStyle`
     --background: #f5f5f5;
     --border: #c7c7c7;
     --primary: #7045ff;
+    --primary-lighten: #835ff8;
     --success: #5dcb8e;
     --error: #e8235e;
     --yellow: #f5a623;
@@ -28,6 +29,7 @@ export const GlobalStyle = createGlobalStyle`
     --background: #1b1c23;
     --border: #262a30;
     --primary: #7045ff;
+	--primary-lighten: #835ff8;
     --success: #5dcb8e;
     --error: #e8235e;
     --yellow: #f5a623;
