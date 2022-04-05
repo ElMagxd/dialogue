@@ -10,10 +10,9 @@ const Icon = ({ size = 20, name, className = '' }) => {
 			width={width}
 			height={height}
 			viewBox={viewBox}
+			dangerouslySetInnerHTML={{__html: icon}}
 			data-name={name}
-		>
-			{icon}
-		</svg>
+		/>
 	)
 }
 
