@@ -1,7 +1,20 @@
 import { useContext } from 'react'
 import { AppContext } from '../../../context'
 import { IoIosMoon, IoIosSunny } from "react-icons/io"
-import './styles.css'
+import styled from 'styled-components'
+
+const ThemeChanger = styled.div`
+	cursor: pointer;
+	margin-left: auto;
+
+	svg.dark path {
+		fill: var(--dark);
+	}
+
+	svg.yellow path {
+		fill: var(--yellow);
+	}
+`;
 
 const Theme = () => {
 	const {theme, toggleTheme} = useContext(AppContext);
@@ -12,8 +25,7 @@ const Theme = () => {
 	}
 
 	return (
-		<div
-			className="theme"
+		<ThemeChanger
 			data-theme={theme === 'light' ? 'dark' : 'light'}
 			onClick={onToggleTheme}
 		>
@@ -22,7 +34,7 @@ const Theme = () => {
 			) : (
 				<IoIosSunny size={20} className="yellow" />
 			)}
-		</div>
+		</ThemeChanger>
 	)
 }
 

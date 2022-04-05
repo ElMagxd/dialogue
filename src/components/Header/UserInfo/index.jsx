@@ -1,13 +1,35 @@
-import './styles.css'
+import styled from 'styled-components';
+
+const UserInfoWrapper = styled.div`
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+`;
+
+const UserName = styled.div`
+	text-align: center;
+`;
+
+const UserStatus = styled.div`
+	text-align: center;
+
+	.circle {
+		border-radius: 50%;
+		width: 7px;
+		height: 7px;
+		background: var(--primary);
+		margin-right: 5px;
+	}
+`;
 
 const UserInfo = () => (
-	<div className="user-info">
-		<div className="name">Admin</div>
-		<div className="status">
+	<UserInfoWrapper className="user-info">
+		<UserName>Admin</UserName>
+		<UserStatus>
 			<span className="circle" />
 			Online
-		</div>
-	</div>
+		</UserStatus>
+	</UserInfoWrapper>
 );
 
 export default UserInfo;

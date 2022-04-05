@@ -1,12 +1,10 @@
-import classNames from "classnames";
 import dayjs from "dayjs";
 import Icon from '../../Icon'
-
-import './styles.css'
+import { StyledItem } from './styled'
 
 const Item = ({ isReverse, messages, avatar }) => {
 	return (
-		<div className={classNames('item', {reverse: isReverse})}>
+		<StyledItem isReverse={isReverse}>
 			<img src={avatar} alt="Avatar" className="avatar" />
 			<div className="list">
 				{messages.map(item => (
@@ -21,7 +19,7 @@ const Item = ({ isReverse, messages, avatar }) => {
 					</div>
 				))}
 			</div>
-		</div>
+		</StyledItem>
 	)
 }
 

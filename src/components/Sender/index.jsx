@@ -1,6 +1,40 @@
 import { useState } from 'react'
 import { defaultAvatarURL } from '../../data'
-import './styles.css'
+import styled from 'styled-components'
+
+const SendForm = styled.form`
+	display: flex;
+	padding: 20px;
+	border-top: 1px solid var(--border);
+
+	input {
+		width: 100%;
+		height: 100%;
+		border: 1px solid var(--border);
+		background-color: var(--accent-1);
+		padding: 1rem 1.2rem;
+		transition: border-color 200ms;
+		border-radius: 5px;
+		outline: none;
+		color: var(--color);
+
+		&:focus {
+			border-color: var(--primary);
+		}
+	}
+
+	button {
+		height: 100%;
+		padding: 1rem 1.2rem;
+		border-radius: 5px;
+		cursor: pointer;
+		margin-left: 1rem;
+		outline: none;
+		border: 1px solid var(--primary);
+		background: var(--primary);
+		color: var(--primary-color);
+	}
+`;
 
 const Sender = ({ onAddMessage }) => {
 	const [value, setValue] = useState("");
@@ -24,7 +58,7 @@ const Sender = ({ onAddMessage }) => {
 
 
 	return (
-		<form className="sender" onSubmit={onSubmit}>
+		<SendForm onSubmit={onSubmit}>
 			<input
 				placeholder="Enter your message"
 				value={value}
@@ -32,7 +66,7 @@ const Sender = ({ onAddMessage }) => {
 				required
 			/>
 			<button>Send</button>
-		</form>
+		</SendForm>
 	)
 }
 

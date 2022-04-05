@@ -3,7 +3,27 @@ import Item from "./Item"
 import Title from "./Title"
 import { normalizeDialog } from "./helpers"
 import reducer from './reducer'
-import './styles.css'
+import styled from "styled-components"
+
+const StyledDialog = styled.div`
+	flex-grow: 1;
+	position: relative;
+`;
+
+const Overflow = styled.div`
+	padding: 20px 20px 30px;
+	position: absolute;
+	width: 100%;
+	max-height: 100%;
+	left: 0;
+	bottom: 0;
+	overflow: auto;
+	scrollbar-width: none;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+`;
 
 const Dialog = ({ newMessage }) => {
 	const dialogRef = useRef();
@@ -20,7 +40,7 @@ const Dialog = ({ newMessage }) => {
 			.then(messages => dispatch({
 				type: "add-message",
 				payload: messages
-			}))
+			}));
 	}
 	useEffect(() => {
 		getMessages()
@@ -58,8 +78,8 @@ const Dialog = ({ newMessage }) => {
 	const normalizedDialog = normalizeDialog(state.messages);
 
 	return (
-		<div className="dialog">
-			<div className="overflow" ref={dialogRef}>
+		<StyledDialog>
+			<Overflow ref={dialogRef}>
 				{normalizedDialog.map(item => (
 					item.type ==='message' ? (
 						<Item {...item} key={item.id} />
@@ -67,8 +87,8 @@ const Dialog = ({ newMessage }) => {
 						<Title key={item.id} date={item.date} />
 					)
 				))}
-			</div>
-		</div>
+			</Overflow>
+		</StyledDialog>
 	)
 }
 

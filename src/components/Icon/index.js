@@ -11,7 +11,6 @@ const Icon = ({ size = 20, name, className = '' }) => {
 			height={height}
 			viewBox={viewBox}
 			dangerouslySetInnerHTML={{__html: icon}}
-			data-name={name}
 		/>
 	)
 }
