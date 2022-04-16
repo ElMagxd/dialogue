@@ -28,7 +28,7 @@ const UserStatus = styled.div`
 	}
 `;
 
-const UserInfo = () => (
+const UserInfo: React.FC = () => (
 	<UserInfoWrapper className="user-info">
 		<UserName>Admin</UserName>
 		<UserStatus>

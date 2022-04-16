@@ -1,5 +1,5 @@
-import { useContext } from 'react'
-import { AppContext } from '../../../context'
+import { FC, useContext } from 'react'
+import { AppContext, IContext } from '../../../context'
 import { IoIosMoon, IoIosSunny } from "react-icons/io"
 import styled from 'styled-components'
 
@@ -16,12 +16,12 @@ const ThemeChanger = styled.div`
 	}
 `;
 
-const Theme = () => {
+const Theme: FC = () => {
 	const {theme, toggleTheme} = useContext(AppContext);
 
-	const onToggleTheme = e => {
+	const onToggleTheme = (e: React.MouseEvent<HTMLDivElement>) => {
 		const { theme } = e.currentTarget.dataset;
-		toggleTheme(theme);
+		toggleTheme(theme as IContext['theme']);
 	}
 
 	return (

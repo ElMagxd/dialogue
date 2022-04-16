@@ -1,9 +1,10 @@
-import { useEffect, useReducer, useRef } from "react"
+import { FC, useEffect, useReducer, useRef } from "react"
 import Item from "./Item"
 import Title from "./Title"
 import { normalizeDialog } from "./helpers"
 import reducer from './reducer'
 import styled from "styled-components"
+import { IServerMessage } from '../../types'
 
 const StyledDialog = styled.div`
 	flex-grow: 1;
@@ -25,8 +26,12 @@ const Overflow = styled.div`
 	}
 `;
 
-const Dialog = ({ newMessage }) => {
-	const dialogRef = useRef();
+interface Props {
+	newMessage: IServerMessage | null
+}
+
+const Dialog: FC<Props> = ({ newMessage }) => {
+	const dialogRef = useRef<HTMLDivElement>(null);
 	const [state, dispatch] = useReducer(reducer, {
 		messages: []
 	});
@@ -61,7 +66,7 @@ const Dialog = ({ newMessage }) => {
 					type: "update-status",
 					payload: {
 						id: newMessage.id,
-						satatus: "readed"
+						status: "readed"
 					}
 				});
 			}, 1000);
@@ -72,7 +77,7 @@ const Dialog = ({ newMessage }) => {
 	 * Scroll down to the latest message
 	 */
 	useEffect(() => {
-		dialogRef.current.scrollTop = dialogRef.current.scrollHeight;
+		dialogRef.current!.scrollTop = dialogRef.current!.scrollHeight;
 	}, [state.messages.length])
 
 	const normalizedDialog = normalizeDialog(state.messages);

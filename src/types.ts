@@ -6,5 +6,26 @@ export interface IServerMessage {
 	id: number;
 	date: string;
 	is: "my" | "her";
-	status?: Status;
+	status ? : Status;
+}
+
+export interface ITitleMessage {
+	type: "title";
+	id: string;
+	date: string;
+}
+
+export interface IMessageItem {
+	text: string;
+	status: Status;
+	id: number;
+	date: string;
+}
+
+export interface IMessage {
+	type: "message";
+	id: string;
+	avatar: string;
+	isReverse: boolean;
+	messages: IMessageItem[];
 }

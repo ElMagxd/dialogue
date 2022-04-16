@@ -11,7 +11,7 @@ const HeaderWrapper = styled.div`
   padding: 20px;
 `;
 
-const Header = () => (
+const Header: React.FC = () => (
   <HeaderWrapper className='header'>
 	  <UserInfo/>
     <Theme/>

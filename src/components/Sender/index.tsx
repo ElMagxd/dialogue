@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { defaultAvatarURL } from '../../data'
 import styled from 'styled-components'
+import { IServerMessage } from '../../types';
 
 const SendForm = styled.form`
 	display: flex;
@@ -41,12 +42,17 @@ const SendForm = styled.form`
 	}
 `;
 
-const Sender = ({ onAddMessage }) => {
+
+interface Props {
+	onAddMessage: (message: IServerMessage | null) => void
+}
+
+const Sender: React.FC<Props> = ({ onAddMessage }) => {
 	const [value, setValue] = useState("");
 
-	const onChange = e => setValue(e.target.value);
+	const onChange = (e: React.ChangeEvent<HTMLInputElement>) => setValue(e.target.value);
 
-	const onSubmit = e => {
+	const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
 		onAddMessage({

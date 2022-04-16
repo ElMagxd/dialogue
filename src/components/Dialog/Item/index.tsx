@@ -1,8 +1,15 @@
 import dayjs from "dayjs";
+import { IMessageItem } from "../../../types";
 import Icon from '../../Icon'
 import { StyledItem } from './styled'
 
-const Item = ({ isReverse, messages, avatar }) => {
+interface Props {
+	isReverse: boolean
+	messages: IMessageItem[]
+	avatar: string
+}
+
+const Item: React.FC<Props> = ({ isReverse, messages, avatar }) => {
 	return (
 		<StyledItem isReverse={isReverse}>
 			<img src={avatar} alt="Avatar" className="avatar" />
@@ -14,7 +21,7 @@ const Item = ({ isReverse, messages, avatar }) => {
 						<Icon
 							size={15}
 							className="message-status"
-							name={item.satatus === "sended" ? "MessageSended" : "MessageReaded"}
+							name={item.status === "sended" ? "MessageSended" : "MessageReaded"}
 						/>
 					</div>
 				))}
