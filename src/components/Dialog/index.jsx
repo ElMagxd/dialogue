@@ -76,6 +76,7 @@ const Dialog = ({ newMessage }) => {
 	}, [state.messages.length])
 
 	const normalizedDialog = normalizeDialog(state.messages);
+	console.log(state.messages)
 
 	return (
 		<StyledDialog>

@@ -1,6 +1,8 @@
-export const getTheme = () => localStorage.getItem('application-theme') || 'dark';
+import { IContext } from "../context";
 
-export const setTheme = theme => {
+export const getTheme = () : IContext['theme'] => (localStorage.getItem('application-theme') as IContext['theme']) || 'dark';
+
+export const setTheme = (theme: IContext['theme']) => {
 	localStorage.setItem('application-theme', theme);
 
 	if (theme === 'dark') {

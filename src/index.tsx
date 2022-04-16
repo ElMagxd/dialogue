@@ -9,6 +9,7 @@ WebFontLoader.load({
   },
 });
 
-const container = document.getElementById('root');
-const root = createRoot(container);
-root.render(<App />);
+const rootElement = document.getElementById('root');
+if (!rootElement) throw new Error('Failed to find the root element');
+const root = createRoot(rootElement);
+root.render(<App/>);

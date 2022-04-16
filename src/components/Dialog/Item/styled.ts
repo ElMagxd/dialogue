@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-export const StyledItem = styled.div`
+interface Props {
+	isReverse: boolean
+}
+
+export const StyledItem = styled.div<Props>`
 	display: flex;
 	margin: 10px 0;
 	${({ isReverse }) => (isReverse && 'flex-direction: row-reverse')};

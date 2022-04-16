@@ -1,18 +1,19 @@
 import dayjs from "dayjs";
+import { IServerMessage } from "../../types";
 
-export const normalizeDialog = dialog => {
-  const newDialog = [];
+export const normalizeDialog = (dialog : IServerMessage[]) => {
+  const newDialog: any[] = [];
 
   dialog.forEach((item, i) => {
 	const first = dayjs((i === 0 ? item : dialog[i - 1]).date);
 	const diff = first.diff(item.date, "day");
 
 	if (i === 0 || diff) {
-        newDialog.push({
+    newDialog.push({
 			type: "title",
 			id: `item-title-${item.id}`,
 			date: item.date,
-        });
+    });
 	}
 
     if (i === 0 || item.is !== dialog[i - 1].is || diff) {

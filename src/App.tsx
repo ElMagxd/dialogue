@@ -1,15 +1,16 @@
-import { useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { getTheme, setTheme } from './helpers/theme'
-import { AppContext } from './context'
+import { AppContext, IContext } from './context'
 import Header from "./components/Header";
 import Dialog from "./components/Dialog";
 import Sender from "./components/Sender";
 import { GlobalStyle, Container } from './styled'
+import { IServerMessage } from "./types";
 
 
-function App() {
-  const [message, addMessage] = useState(null);
-  const [theme, toggleTheme] = useState(getTheme());
+const App: FC = () => {
+  const [message, addMessage] = useState<IServerMessage | null>(null);
+  const [theme, toggleTheme] = useState<IContext['theme']>(getTheme());
 
   useEffect(() => {
     setTheme(theme);
